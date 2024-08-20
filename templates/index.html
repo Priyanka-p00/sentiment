@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background color */
+        }
+        .container {
+            margin-top: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 30px;
+        }
+        h1, h2, h3 {
+            color: #343a40; /* Darker text color */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Twitter Sentiment Analysis</h1>
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="tweet">Enter a tweet:</label>
+                <textarea class="form-control" id="tweet" name="tweet" rows="4" required placeholder="Type your tweet here..."></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Analyze Sentiment</button>
+            </div>
+        </form>
+
+        {% if sentiment %}
+        <div class="mt-4 result">
+            <h2 class="text-success">Tweet Analysis Result:</h2>
+            <h4>Tweet:</h4>
+            <p class="border p-3 rounded">{{ tweet }}</p>
+            <h4>Predicted Sentiment: <span class="text-warning">{{ sentiment }}</span></h4>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
